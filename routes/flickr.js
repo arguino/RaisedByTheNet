@@ -1,6 +1,6 @@
-var express = require('express');
-var request = require('request');
-var router = express.Router();
+const express = require('express');
+const request = require('request');
+const router = express.Router();
 
 function buildFlickrPhotoApi(farm, server, id, secret) {
     var string = 'https://farm' + farm + '.staticflickr.com/' + server + '/' + id + '_' + secret + '_h.jpg';
@@ -12,13 +12,14 @@ router.get('/', function (req, res, next) {
         if (err) {
             return console.log(err);
         }
-        var photos = body.photoset.photo;
-        var photoUrls = new Array();
+        let photos = body.photoset.photo;
+        let photoUrls = [];
         photos.forEach(function (photo, index) {
             photoUrls[index] = buildFlickrPhotoApi(photo.farm, photo.server, photo.id, photo.secret);
         });
         console.log(photoUrls);
-        res.render('index', {title: 'Heartbreak', tabarnak: photoUrls});
+        res.json(photoUrls);
+        // res.render('index', {title: 'Heartbreak', tabarnak: photoUrls});
     });
 })
 ;
