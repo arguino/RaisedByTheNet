@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-    state = {passwords: []};
+    state = {images: []};
+
     getPasswords = () => {
         fetch('/flickr')
-            .then(res => res.json)
-            .then(passwords => this.setState({passwords}));
+            .then(res => res.json())
+            .then(images => this.setState({ images }))
+        .then(console.log(this.state));
     }
 
     componentDidMount() {
@@ -15,14 +17,17 @@ class App extends Component {
     }
 
     render() {
-        const { passwords } = this.state;
+        const { images } = this.state;
 
         return (
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo"/>
-                    <img src={passwords[0]} alt="logocriss"/>
-                    <h1> {passwords[0]} ok</h1>
+                    {this.state.images.map((image) =>
+                        <li>
+                            <img src={ image } />
+                        </li>
+                    )}
                     <h1 className="App-title">Welcome to React</h1>
                 </header>
                 <p className="App-intro">
