@@ -1,29 +1,23 @@
 .App {
-}
-.test {
-    display: inline-block
-}
-.App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+
 }
 
-.App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
+a{
+    color: hotpink;
+}
+/* visited link */
+a:visited {
+    color: hotpink;
+}
+
+/* mouse over link */
+a:hover {
     color: white;
 }
-.App-subsections-titles {
 
-}
-.App-title {
-    font-size: 1.5em;
-    text-align: center;
-}
-
-.App-intro {
-    font-size: large;
+/* selected link */
+a:active {
+    color: white;
 }
 
 @keyframes App-logo-spin {
