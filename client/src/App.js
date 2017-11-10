@@ -13,7 +13,7 @@ class newApp extends Component {
                 <br/>
                 <img
                     src="https://pro2-bar-s3-cdn-cf6.myportfolio.com/c46230f62bacd9eaae374a893fe2aa23/0934ead2-b5cc-443a-88b5-ff3d9d707256_rw_1920.jpg?h=107d1864016d079ab423ab5408b58cb7"
-                    style={imageStyle} alt='indexPhoto' margin='auto'/>
+                    style={imageStyle} alt='indexPhoto'/>
             </div>
         );
     }
@@ -22,14 +22,14 @@ class newApp extends Component {
 function MenuHeader() {
     const tiles = (
         <MediaQuery query="(min-width: 0rem)">
-                <MenuItemDesktop name="Home" link="/index.html"></MenuItemDesktop>
-                <MenuItemDesktop name="Photography" link="/photography.html"></MenuItemDesktop>
-                <MenuItemDesktop name="Projects" link="/projects.html"></MenuItemDesktop>
-                <MenuItemDesktop name="About" link="/about.html"></MenuItemDesktop>
+            <MenuItemDesktop name="Home" link="/index.html"></MenuItemDesktop>
+            <MenuItemDesktop name="Photography" link="/photography.html"></MenuItemDesktop>
+            <MenuItemDesktop name="Projects" link="/projects.html"></MenuItemDesktop>
+            <MenuItemDesktop name="About" link="/about.html"></MenuItemDesktop>
         </MediaQuery>
     );
 
-    return <div className="App-subsections-titles" display="inline-block">
+    return <div className="App-subsections-titles" style={rowsDivStyle}>
         {tiles}
     </div>
 }
@@ -45,26 +45,28 @@ function MenuItemDesktop(props) {
 
 const headerStyle = {
     backgroundColor: '#303030',
-    height: '15vh',
-    paddingTop: '1vh',
-    paddingBottom: '3vh',
     margin: 'auto',
-    marginTop: '2vh',
+    marginTop: '1vh',
     color: 'white',
-    fontSize: '1.20rem',
     width: '100vw',
     maxWidth: '80rem',
-    minWidth: '80vw'
+    minWidth: '80vw',
+    height: '18vh'
 }
 
 const titleStyle = {
+    paddingTop: '1vh',
     fontSize: '5vh',
     textAlign: 'center',
 }
-
+const rowsDivStyle = {
+    height: '300px',
+    width: '100px'
+}
 const rowStyle = {
     display: 'inline-block',
-    marginLeft: '.5vw'
+    marginLeft: '.5vw',
+    fontSize: '2vh',
 }
 
 const imageStyle = {
@@ -74,4 +76,5 @@ const imageStyle = {
     display: 'block',
     margin: 'auto',
 }
+
 export default newApp;
