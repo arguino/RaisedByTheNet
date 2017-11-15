@@ -1,14 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function Images(props){
-    return props.images.map((image) =>
-        <li key ={image}>
-            <img src={ image } alt="notmuchbaby"/>
-        </li>
-    );
-}
 
 class OldApp extends Component {
     state = {images: []};
@@ -16,8 +6,8 @@ class OldApp extends Component {
     getPasswords = () => {
         fetch('/flickr')
             .then(res => res.json())
-            .then(images => this.setState({ images }))
-        .then(console.log(this.state));
+            .then(images => this.setState({images}))
+            .then(console.log(this.state));
     }
 
     componentDidMount() {
@@ -25,53 +15,32 @@ class OldApp extends Component {
     }
 
     render() {
-        const { images } = this.state;
+        const {images} = this.state;
 
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <Clock />
-                    <h1 className="App-title">Welcome to React</h1>
-                </header>
-                <body>
-                     <Images images={images} />
-                </body>
+                <Images images={images}/>
             </div>
         );
     }
 }
 
-class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {date: new Date()};
-    }
-
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState({
-            date: new Date()
-        });
-    }
-
-    render() {
-        return (
+function Images(props) {
+    return props.images.map((image) =>
+        (
             <div>
-                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+                <img key={image} src={image} style={imageStyle} alt="notmuchbaby"/>
+                <br/>
             </div>
-        );
-    }
+        ));
+}
+
+const imageStyle = {
+    display: 'block',
+    margin: 'auto',
+    width: '80vw',
+    minWidth: '80vw',
+    maxHeight: '100vh',
 }
 
 export default OldApp;
