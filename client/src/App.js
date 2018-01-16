@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import MediaQuery from 'react-responsive';
 import Images from './OldApp'
 import './App.css';
+import Photography from './Photography.js';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 
 class newApp extends Component {
@@ -20,12 +21,12 @@ class newApp extends Component {
                             style={contentStyle} alt='indexPhoto'/>
                     )}/>
 
-                    <Route exact="true" path="/photography" render={() => (
+                    <Route exact="true" path="/photography/" render={() => (
                         <div>
-                            <Images/>
+                            <Photography/>
                         </div>
                     )}/>
-                    <Route exact="true" path="/projects" render={() => (
+                    <Route exact="true" path="/projects/" render={() => (
                         <div>
                             <a href="https://www.ozymandias.io">waddup</a>
                         </div>
@@ -83,7 +84,7 @@ const rowsDivStyle = {
 const rowStyle = {
     display: 'inline-block',
     marginLeft: '.5vw',
-    fontSize: '2vh',
+    fontSize: '1.4vh',
 }
 
 const contentStyle = {
