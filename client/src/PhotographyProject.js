@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 
-class OldApp extends Component {
+class PhotographyProject extends Component {
     state = {images: []};
 
-    getPasswords = () => {
+    getImages = () => {
         fetch('/flickr')
             .then(res => res.json())
             .then(images => this.setState({images}))
             .then(console.log(this.state));
-    }
+    };
 
     componentDidMount() {
-        this.getPasswords();
+        this.getImages();
     }
 
     render() {
@@ -29,7 +29,7 @@ function Images(props) {
     return props.images.map((image) =>
         (
             <div>
-                <img key={image} src={image} style={imageStyle} alt="notmuchbaby"/>
+                <img key={image} src={image} style={imageStyle} alt="ImSoSorry"/>
                 <br/>
             </div>
         ));
@@ -41,6 +41,6 @@ const imageStyle = {
     width: '80vw',
     minWidth: '80vw',
     maxHeight: '100vh',
-}
+};
 
-export default OldApp;
+export default PhotographyProject;
