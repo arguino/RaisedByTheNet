@@ -38,8 +38,7 @@ function Images(props) {
 const imageStyle = {
     display: 'block',
     margin: 'auto',
-    width: '80vw',
-    minWidth: '80vw',
+    maxWidth: '80vw',
     maxHeight: '100vh',
 };
 

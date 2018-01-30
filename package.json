@@ -17,6 +17,7 @@
     "react-dom": "^16.2.0",
     "reactstrap": "^5.0.0-alpha.4",
     "request": "^2.83.0",
-    "serve-favicon": "^2.4.5"
+    "serve-favicon": "^2.4.5",
+    "node-fetch": "^1.7.3"
   }
 }
