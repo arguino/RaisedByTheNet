@@ -1,25 +1,10 @@
 import React, {Component} from 'react';
 
 class PhotographyProject extends Component {
-    state = {images: []};
-
-    getImages = () => {
-        fetch('/flickr')
-            .then(res => res.json())
-            .then(images => this.setState({images}))
-            .then(console.log(this.state));
-    };
-
-    componentDidMount() {
-        this.getImages();
-    }
-
     render() {
-        const {images} = this.state;
-
         return (
             <div className="App">
-                <Images images={images}/>
+                <Images images={this.props.images}/>
             </div>
         );
     }
