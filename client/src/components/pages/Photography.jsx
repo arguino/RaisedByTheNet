@@ -43,47 +43,31 @@ class Photography extends Component {
 function PhotographyProjectBoxList(props) {
 
     return <div>
-            <PhotographyProjectBox name="Autumn" link="/photography/1" image={props.images}> </PhotographyProjectBox>
+            <PhotographyProjectBox name="Montreal - Summer 2017" link="/photography/1" image={props.images}> </PhotographyProjectBox>
     </div>
 }
 
 function PhotographyProjectBox(props) {
     return (<div>
-        <section>
-        <div className="container py-3">
-        <div className="card">
+        <Link to={props.link}>
+        <div className="container">
+        <div className="card" style={cardStyle}>
         <div className="row ">
-        <div className="col-md-4">
+        <div className="col-md-4" style={photographyBoxTitleStyle}>
+        <h4 className="card-title">{props.name}</h4>
+        </div>
+        <div className="col-md-8">
         <img src={props.image} className="w-100" />
         </div>
-        <div className="col-md-8 px-3">
-        <div className="card-block px-3">
-        <h4 className="card-title">Lorem ipsum dolor sit amet</h4>
-        <p className="card-text">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-        <p className="card-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a href="#" className="btn btn-primary">Read More</a>
-        </div>
-        </div>
-
         </div>
         </div>
         </div>
-        </section>
-        <Card>
-            <CardImg top width="50%" style={photographyBoxImagePreview} src={props.image} alt="Card image cap" />
-            <CardBody>
-                <CardTitle>{props.name}</CardTitle>
-            </CardBody>
-        </Card>
-        <Link style={photographyBoxStyle} to={props.link}>
-            <h2 style={photographyBoxTitle}> {props.name}</h2>
-            <img key={props.image} src={props.image} alt="ProjectPicturePreview" style={photographyBoxImagePreview}/>
         </Link>
     </div>);
 }
 
 const photographyBoxStyle = {
-    display: 'flex',
+    display: 'grid',
     justifyContent: 'space-around',
     flexDirection: 'row',
 
@@ -97,14 +81,20 @@ const photographyBoxStyle = {
     backgroundColor: '#303030',
 };
 
-const photographyBoxTitle = {
+const photographyBoxTitleStyle = {
     margin: 'auto',
+    textAlign: 'center',
 };
 
 const photographyBoxImagePreview = {
     margin: 'auto',
     maxWidth: '50vw',
     maxHeight: '100%',
+};
+
+const cardStyle = {
+    backgroundColor: '#303030',
+    borderStyle: 'none',
 };
 
 export default Photography;

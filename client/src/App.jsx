@@ -16,7 +16,12 @@ class App extends Component {
                     <Route exact={true} path="/photography/" component={Photography} />
                     <Route exact={true} path="/projects/" render={() => (
                         <div>
-                            <a href="https://www.ozymandias.io">waddup</a>
+                            <a href="https://www.ozymandias.io">Link to a non existant website</a>
+                        </div>
+                    )}/>
+                    <Route exact={true} path="/about/" render={() => (
+                        <div>
+                            <p> will be completed one day like the rest of this site. </p>
                         </div>
                     )}/>
                 </div>

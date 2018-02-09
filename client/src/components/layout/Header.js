@@ -27,8 +27,8 @@ class Header extends Component {
 	                <Collapse isOpen={this.state.isOpen} navbar>
 	                    <Nav className="ml-auto" navbar>
 	                        <MenuItem name="Home" link="/"></MenuItem>
-	                        <MenuItem name="Projects" link="/projects"></MenuItem>
 	                        <MenuItem name="Photography" link="/photography"></MenuItem>
+	                        <MenuItem name="Projects" link="/projects"></MenuItem>
 	                        <MenuItem name="About" link="/about"></MenuItem>
 	                    </Nav>
 	                </Collapse>
