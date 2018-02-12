@@ -13,8 +13,8 @@ class PhotographyProject extends Component {
 function Images(props) {
     return props.images.map((image) =>
         (
-            <div>
-                <img key={image} src={image} style={imageStyle} alt="ImSoSorry"/>
+            <div key={image}>
+                <img src={image} style={imageStyle} alt="ImSoSorry"/>
                 <br/>
             </div>
         ));

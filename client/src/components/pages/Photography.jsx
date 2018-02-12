@@ -1,100 +1,108 @@
 import React, {Component} from 'react';
 import Images from './PhotographyProject'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+
+const albums = [
+    '2017-fall-montreal',
+    '2017-summer-beauce',
+    '2017-summer-montreal'
+];
+
+const album_names = [
+    'Montreal, Fall 2017',
+    'Beauce, Summer 2017',
+    'Montreal, Summer 2017',
+];
 
 
 class Photography extends Component {
-    state = {images: []};
+    state = {albums: []};
 
-    getImages = () => {
-        fetch('/flickr')
-            .then(res => res.json())
-            .then(images => this.setState({images}))
-            .then(console.log(this.state));
+    getAlbums = () => {
+        let promises = albums.map(queryParam => fetch(this.createFetchUrl(queryParam)).then(res => res.json()));
+        Promise.all(promises).then(albums => {
+            this.setState({albums});
+        })
+    };
+
+    createFetchUrl = (album_name) => {
+        return '/flickr/' + album_name;
     };
 
     componentDidMount() {
-        this.getImages();
+        this.getAlbums();
     }
 
     render() {
-        const {images} = this.state;
+        const {albums} = this.state;
+        var photographyProjects = albums.length > 0 ? <PhotographyProjects albums={albums}/> : null;
+
         return (
             < Router>
-                < div className="App">
-                    <Route exact="true" path="/photography" render={() => (
-                        <div>
-                            <PhotographyProjectBoxList images={images[0]}/>
-                        </div>
-                    )}/>
-                    <Route exact="true" path="/photography/1" render={() => (
-                        <div>
-                            <Images images={images}/>
-                        </div>
-                    )}/>
-                </div>
+                {photographyProjects}
             </Router>
         );
     }
 }
 
+function PhotographyProjects(props) {
+    return props.albums.map((images, index) =>
+        (
+            < div key={index}>
+                <Route exact={true} path="/photography" render={() => (
+                    <div>
+                        <PhotographyProjectBoxList index={index} images={images[0]} link={'/photography/' + index}/>
+                    </div>
+                )}/>
+                <Route exact={true} path={"/photography/" + index} render={() => (
+                    <div>
+                        <Images images={images}/>
+                    </div>
+                )}/>
+                <br/>
+            </div>
+        ));
+}
+
 function PhotographyProjectBoxList(props) {
 
     return <div>
-            <PhotographyProjectBox name="Montreal - Summer 2017" link="/photography/1" image={props.images}> </PhotographyProjectBox>
+        <PhotographyProjectBox name={album_names[props.index]} link={props.link} image={props.images}
+                               alt={props.images}> </PhotographyProjectBox>
     </div>
 }
 
 function PhotographyProjectBox(props) {
     return (<div>
         <Link to={props.link}>
-        <div className="container">
-        <div className="card" style={cardStyle}>
-        <div className="row ">
-        <div className="col-md-4" style={photographyBoxTitleStyle}>
-        <h4 className="card-title">{props.name}</h4>
-        </div>
-        <div className="col-md-8">
-        <img src={props.image} className="w-100" />
-        </div>
-        </div>
-        </div>
-        </div>
+            <div className="container">
+                <div className="card" style={cardStyle}>
+                    <div className="row ">
+                        <div className="col-md-4" style={photographyBoxTitleStyle}>
+                            <h4 className="card-title">{props.name}</h4>
+                        </div>
+                        <div className="col-md-8">
+                            <img src={props.image} className="w-100" style={previewImageStyle} alt={props.image}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </Link>
     </div>);
 }
-
-const photographyBoxStyle = {
-    display: 'grid',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
-
-    margin: 'auto',
-    marginTop: '.5vh',
-    marginBottom: '5vh',
-    width: '80vw',
-    minWidth: '80vw',
-
-    fontSize: '.9rem',
-    backgroundColor: '#303030',
-};
 
 const photographyBoxTitleStyle = {
     margin: 'auto',
     textAlign: 'center',
 };
 
-const photographyBoxImagePreview = {
-    margin: 'auto',
-    maxWidth: '50vw',
-    maxHeight: '100%',
-};
-
 const cardStyle = {
     backgroundColor: '#303030',
     borderStyle: 'none',
+    maxHeight: '50vh',
+    overflow: 'hidden',
 };
+
+const previewImageStyle = {}
 
 export default Photography;
