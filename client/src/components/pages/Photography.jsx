@@ -51,7 +51,13 @@ function PhotographyProjects(props) {
             < div key={index}>
                 <Route exact={true} path="/photography" render={() => (
                     <div>
-                        <PhotographyProjectBoxList index={index} images={images[0]} link={'/photography/' + index}/>
+                        <PhotographyProjectBoxList
+                            index={index}
+                            images={images[0]}
+                            link={'/photography/' + index}
+                        >
+                        </PhotographyProjectBoxList>
+
                     </div>
                 )}/>
                 <Route exact={true} path={"/photography/" + index} render={() => (
@@ -74,15 +80,15 @@ function PhotographyProjectBoxList(props) {
 
 function PhotographyProjectBox(props) {
     return (<div>
-        <Link to={props.link}>
+        <Link to={props.link} class="photography-project-box-link">
             <div className="container">
-                <div className="card" style={cardStyle}>
+                <div className="card photography-project-box">
                     <div className="row ">
                         <div className="col-md-4" style={photographyBoxTitleStyle}>
                             <h4 className="card-title">{props.name}</h4>
                         </div>
                         <div className="col-md-8">
-                            <img src={props.image} className="w-100" style={previewImageStyle} alt={props.image}/>
+                            <img src={props.image} className="w-100" alt={props.image}/>
                         </div>
                     </div>
                 </div>
@@ -95,14 +101,5 @@ const photographyBoxTitleStyle = {
     margin: 'auto',
     textAlign: 'center',
 };
-
-const cardStyle = {
-    backgroundColor: '#303030',
-    borderStyle: 'none',
-    maxHeight: '50vh',
-    overflow: 'hidden',
-};
-
-const previewImageStyle = {}
 
 export default Photography;
