@@ -1,0 +1,28 @@
+.photography-project-box-link {
+    color: black;
+}
+
+.photography-project-box-link:hover {
+    color: #f2f2f2;
+}
+
+.photography-project-box {
+    background-color: #f2f2f2;
+    border-style: none;
+    max-height: 50vh;
+    overflow: hidden;
+
+}
+
+.photography-project-box:active {
+    transition: background 0.2s ease, color 0.2s ease
+}
+
+.photography-project-box:hover {
+    background-color: #191919;
+    transition: background 0.2s ease, color 0.2s ease;
+    opacity: 0.9;
+    -moz-opacity: 90%;
+    -webkit-opacity: 90%;
+    z-index: 2;
+}

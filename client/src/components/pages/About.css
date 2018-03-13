@@ -1,0 +1,17 @@
+.main-about-div {
+    width: 40%;
+    min-width: 600px;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.content {
+    text-align: justify;
+}
+
+.hyperlink {
+    color: #2e3133;
+}

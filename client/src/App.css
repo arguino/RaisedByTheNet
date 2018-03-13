@@ -38,31 +38,7 @@ a:active {
     color: black;
 }
 
-.photography-project-box-link {
-    color: black;
+ul {
+    padding-left: 10px;
 }
 
-.photography-project-box-link:hover {
-    color: #f2f2f2;
-}
-
-.photography-project-box {
-    background-color: #f2f2f2;
-    border-style: none;
-    max-height: 50vh;
-    overflow: hidden;
-
-}
-
-.photography-project-box:active {
-    transition: background 0.2s ease, color 0.2s ease
-}
-
-.photography-project-box:hover {
-    background-color: #191919;
-    transition: background 0.2s ease, color 0.2s ease;
-    opacity: 0.80;
-    -moz-opacity: 80%;
-    -webkit-opacity: 80%;
-    z-index: 2;
-}

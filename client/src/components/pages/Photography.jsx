@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Images from './PhotographyProject'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import './Photography.css';
 
 const albums = [
     '2017-fall-montreal',
