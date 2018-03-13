@@ -9,11 +9,14 @@ const app = express();
 
 app.use(favicon(path.join(__dirname, 'client/build', 'favicon.ico')));
 app.use(logger('dev'));
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(__dirname + '/client/build'));
+app.set('views', __dirname + '/client/build');
+app.engine('html', require('ejs').renderFile);
 
-app.use('/', index);
+// Serve static files from the React app
+
 app.use('/flickr', flickr);
+app.use('/', index);
 
 
 // catch 404 and forward to error handler

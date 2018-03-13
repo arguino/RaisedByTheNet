@@ -26,3 +26,7 @@
     -webkit-opacity: 90%;
     z-index: 2;
 }
+
+.photography-project-preview:hover {
+    background-color: black;
+}

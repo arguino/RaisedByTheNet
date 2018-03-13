@@ -1,8 +1,26 @@
 .main-about-div {
-    width: 40%;
-    min-width: 600px;
+    width: 45%;
     margin: auto;
 }
+
+@media screen and (max-width: 1400px) {
+  .main-about-div {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .main-about-div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-about-div {
+    width: 100%;
+  }
+}
+
 
 .center {
     text-align: center;

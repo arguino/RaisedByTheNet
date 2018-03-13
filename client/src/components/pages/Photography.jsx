@@ -89,7 +89,7 @@ function PhotographyProjectBox(props) {
                             <h4 className="card-title">{props.name}</h4>
                         </div>
                         <div className="col-md-8">
-                            <img src={props.image} className="w-100" alt={props.image}/>
+                            <img class="photography-project-preview" src={props.image} className="w-100" alt={props.image}/>
                         </div>
                     </div>
                 </div>
