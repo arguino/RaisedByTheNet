@@ -17,10 +17,9 @@
 
 @media screen and (max-width: 600px) {
   .main-about-div {
-    width: 100%;
+    width: 98%;
   }
 }
-
 
 .center {
     text-align: center;

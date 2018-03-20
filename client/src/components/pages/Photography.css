@@ -30,3 +30,8 @@
 .photography-project-preview:hover {
     background-color: black;
 }
+
+.photography-box-title {
+    margin: auto;
+    text-align: center;
+}

@@ -58,7 +58,6 @@ function PhotographyProjects(props) {
                             link={'/photography/' + index}
                         >
                         </PhotographyProjectBoxList>
-
                     </div>
                 )}/>
                 <Route exact={true} path={"/photography/" + index} render={() => (
@@ -85,7 +84,7 @@ function PhotographyProjectBox(props) {
             <div className="container">
                 <div className="card photography-project-box">
                     <div className="row ">
-                        <div className="col-md-4" style={photographyBoxTitleStyle}>
+                        <div className="col-md-4" className="photography-box-title">
                             <h4 className="card-title">{props.name}</h4>
                         </div>
                         <div className="col-md-8">
@@ -97,10 +96,5 @@ function PhotographyProjectBox(props) {
         </Link>
     </div>);
 }
-
-const photographyBoxTitleStyle = {
-    margin: 'auto',
-    textAlign: 'center',
-};
 
 export default Photography;

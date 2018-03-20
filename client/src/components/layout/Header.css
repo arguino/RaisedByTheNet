@@ -1,0 +1,12 @@
+.title {
+    padding-top: 1vh;
+    width: 100%;
+    font-size: 4vh;
+    text-align: center;
+}
+
+.menu-item-container {
+    display: inline-block;
+    margin-left: .5vw;
+    font-size: 1.4vh;
+}

@@ -4,4 +4,31 @@
     text-align: center;
 }
 
+@media screen and (max-width: 1400px) {
+  .main-projects-div {
+    width: 60%;
+  }
+}
 
+@media screen and (max-width: 1000px) {
+  .main-projects-div {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-projects-div {
+    width: 98%;
+  }
+}
+
+.content {
+    text-align: justify;
+}
+
+.footer {
+  margin-top: 40%;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
