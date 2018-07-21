@@ -32,7 +32,7 @@ class Header extends Component {
                                 <MenuItem name="Home" link="/"></MenuItem>
                                 <MenuItem name="Photography" link="/photography"></MenuItem>
                                 <MenuItem name="Projects" link="/projects"></MenuItem>
-                                <MenuItemBlog name="Blog" link="http://blog.rorscharg.com"> </MenuItemBlog>
+                                <MenuItemBlog name="Blog" link="http://rorscharg.com/blog/"> </MenuItemBlog>
                                 <MenuItem name="About" link="/about"></MenuItem>
                             </Nav>
                         </Collapse>
